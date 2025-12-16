@@ -236,6 +236,11 @@ export default class WebTorrent extends EventEmitter {
       if (this.torrents.includes(torrentId)) return torrentId
     } else {
       const torrents = this.torrents
+
+      for (const torrent of torrents) {
+        if (torrent.torrentUrl === torrentId) return torrent
+      }
+      
       let parsed
       try { parsed = await parseTorrent(torrentId) } catch (err) {}
       if (!parsed) return null

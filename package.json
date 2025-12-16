@@ -161,8 +161,10 @@
   },
   "scripts": {
     "build": "npm run build-js && npm run build-js-worker && npm run build-chromeapp",
+    "build-no-crapp": "npm run build-js && npm run build-js-worker",
     "build-chromeapp": "webpack --config ./scripts/chromeapp.webpack.js",
     "build-js": "webpack --config ./scripts/browser.webpack.js",
+    "build-js-nominified": "webpack --config ./scripts/browser.webpack_nomin.js",
     "build-js-worker": "webpack --config ./scripts/worker.webpack.js",
     "prepublishOnly": "npm run build && npm run update-authors",
     "preversion": "npm run build && npm run update-authors",
